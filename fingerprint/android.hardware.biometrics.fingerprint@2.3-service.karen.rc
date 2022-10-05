@@ -47,7 +47,7 @@ on post-fs-data
     chmod 0600 /sys/bus/platform/devices/fpc_interrupt/irq
     chmod 0660 /sys/bus/platform/devices/fpc_interrupt/irq_unexpected
 
-service fps_hal.denniz /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.denniz
+service fps_hal.karen /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.karen
     # "class hal" causes a race condition on some devices due to files created
     # in /data. As a workaround, postpone startup until later in boot once
     # /data is mounted.

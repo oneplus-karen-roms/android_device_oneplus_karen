@@ -1,8 +1,8 @@
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.3-service.denniz",
+    name: "android.hardware.biometrics.fingerprint@2.3-service.karen",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.denniz.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.denniz.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.karen.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.karen.xml"],
     relative_install_path: "hw",
     srcs: [
         "BiometricsFingerprint.cpp",
@@ -26,7 +26,7 @@ cc_binary {
 }
 
 cc_library_static {
-    name: "libudfps_extension.denniz",
+    name: "libudfps_extension.karen",
     srcs: ["UdfpsExtension.cpp"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"

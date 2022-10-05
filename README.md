@@ -1,19 +1,20 @@
-Device tree for the OnePlus Nord 2 5G (denniz)
+Device tree for the OnePlus Nord 2T 5G (karen)
 =================================================
-
-The OnePlus Nord 2 5G Codename is denniz 
 
 | Basic                   | Spec Sheet                                                                                                                     |
 | -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
+| Codename                | `karen`                                                                                                                        |
+| Device name             | `OP557AL1` (OnePlus Nord 2T 5G)                                                                                                |
+| Model names             | `CPH2399` "EU" global model<br/>`CPH2401` India model                                                                          |
 | CPU                     | Octa-core                                                                                                                      |
-| Chipset                 | MediaTek MT6893 Dimensity 1200 5G (6 nm)                                                                                       |
+| Chipset                 | MediaTek MT6893 Dimensity 1300 5G (6 nm) (MT6893Z_Z/CZA)                                                                       |
 | GPU                     | Mali-G77 MC9                                                                                                                   |
-| Memory                  | 6/8/12 GB RAM                                                                                                                  |
-| Shipped Android Version | Android 11 (OxygenOS 11.3 )                                                                                                    |
+| Memory                  | 8/12 GB RAM                                                                                                                    |
+| Shipped Android Version | Android 12.1 (OxygenOS 12.1)                                                                                                   |
 | Storage                 | 128/256 GB                                                                                                                     |
 | Battery                 | Li-Po 4500 mAh, non-removable                                                                                                  |
-| Display                 | Fluid AMOLED, 90Hz, HDR10+ 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)                                                   |                           |
-| Camera (Back)(Main)     | 50 MP, f/1.9, 24mm (wide), 1/1.56", 1.0µm, PDAF, OIS ,8 MP, f/2.3, 119˚ (ultrawide) 2 MP, f/2.4, (monochrome)                  |                                            
-| Camera (Front)          | 32 MP, f/2.5, (wide), 1/2.8", 0.8µm                                                                                            |
+| Display                 | AMOLED, 90Hz, HDR10+ 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)                                                         |
+| Camera (Back)(Main)     | 50 MP, f/1.8, 24mm (wide), 1/1.56", 1.0µm, PDAF, OIS<br/>8 MP, f/2.2, 120˚ (ultrawide)<br/>2 MP, f/2.2, (monochrome)           |
+| Camera (Front)          | 32 MP, f/2.4, (wide), 1/2.8", 0.8µm                                                                                            |
 
-![image](https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-nord-2-5g-1.jpg)
+![image](https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-nord-2t-5g-1.jpg)
