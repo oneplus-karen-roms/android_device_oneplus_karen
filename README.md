@@ -18,3 +18,37 @@ Device tree for the OnePlus Nord 2T 5G (karen)
 | Camera (Front)          | 32 MP, f/2.4, (wide), 1/2.8", 0.8µm                                                                                            |
 
 ![image](https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-nord-2t-5g-1.jpg)
+
+## Building
+
+First init LineageOS.
+
+```
+repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
+```
+
+Add the file `.repo/local_manifests/local_manifest.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Device Tree -->
+  <project path="device/oneplus/karen" name="oneplus-karen-roms/android_device_oneplus_karen.git" remote="github" revision="lineage-19.1" />
+
+  <!-- Kernel -->
+  <project path="kernel/oneplus/karen" name="oneplus-karen-roms/android_kernel_oneplus_mt6893.git" remote="github" revision="patched-12.1-karen" />
+
+  <!-- Vendor modules -->
+  <project path="kernel/oneplus" name="oneplus-karen-roms/android_vendor_mediatek_kernel_modules_mt6893.git" remote="github" revision="patched-12.1-karen" />
+</manifest>
+```
+
+And then... <sub>see you 160GiB later!</sub>
+```
+repo sync -j5 --current-branch --no-clone-bundle --no-tags
+```
+
+Welcome back. Still OK? Good, now you can build.
+```
+source build/envsetup.sh; breakfast karen
+croot && brunch karen
+```
