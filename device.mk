@@ -26,9 +26,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 TARGET_FLATTEN_APEX := true
 
 # VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 30
-
-PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_EXTRA_VNDK_VERSIONS := 31
+PRODUCT_SHIPPING_API_LEVEL := 31
 
 # Call proprietary blob setup
 $(call inherit-product-if-exists, vendor/oneplus/karen/karen-vendor.mk)
