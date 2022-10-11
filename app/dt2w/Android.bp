@@ -16,7 +16,7 @@
  */
 
 android_app {
-    name: "DT2W-Service-denniz",
+    name: "DT2W-Service-karen",
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
@@ -30,13 +30,13 @@ android_app {
     },
 
     required: [
-        "privapp-permissions_org.lineageos.dt2w.denniz",
+        "privapp-permissions_org.lineageos.dt2w.karen",
     ],
 }
 
 prebuilt_etc {
-    name: "privapp-permissions_org.lineageos.dt2w.denniz",
+    name: "privapp-permissions_org.lineageos.dt2w.karen",
     sub_dir: "permissions",
-    src: "privapp-permissions_org.lineageos.dt2w.denniz.xml",
+    src: "privapp-permissions_org.lineageos.dt2w.karen.xml",
     filename_from_src: true,
 }

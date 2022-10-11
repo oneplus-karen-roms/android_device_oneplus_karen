@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=denniz
+DEVICE=karen
 VENDOR=oneplus
 
 # Load extract_utils and do some sanity checks
