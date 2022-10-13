@@ -502,8 +502,8 @@
         </interface>
         <fqname>@1.0::ITui/default</fqname>
     </hal>
-    <!-- <sepolicy>
+    <sepolicy>
         <version>31.0</version>
-    </sepolicy> -->
+    </sepolicy>
     <kernel target-level="5"/>
 </manifest>

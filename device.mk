@@ -26,7 +26,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 TARGET_FLATTEN_APEX := true
 
 # VNDK
-BOARD_VNDK_VERSION := current
+BOARD_VNDK_VERSION := 31
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 PRODUCT_SHIPPING_API_LEVEL := 31
 
