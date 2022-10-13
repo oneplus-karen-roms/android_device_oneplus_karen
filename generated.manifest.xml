@@ -1,0 +1,810 @@
+<!-- 
+    This is a skeleton device manifest. Notes: 
+    1. If a HAL is supported in both hwbinder and passthrough transport,
+       only hwbinder is shown.
+    2. It is likely that HALs in passthrough transport does not have
+       <interface> declared; users will have to write them by hand.
+    3. A HAL with lower minor version can be overridden by a HAL with
+       higher minor version if they have the same name and major version.
+    4. This output is intended for launch devices.
+       Upgrading devices should not use this tool to generate device
+       manifest and replace the existing manifest directly, but should
+       edit the existing manifest manually.
+       Specifically, devices which launched at Android O-MR1 or earlier
+       should not use the 'fqname' format for required HAL entries and
+       should instead use the legacy package, name, instance-name format
+       until they are updated.
+
+    The following HALs are not added; see warnings.
+        android.hardware.boot@1.2::IBootControl/default
+        android.hardware.health@2.1::IHealth/default
+
+    The following HALs are passthrough and no interface or instance 
+    names can be inferred.
+        android.hardware.renderscript@1.0::I*/* (/vendor/lib/hw/)
+        android.hardware.renderscript@1.0::I*/* (/vendor/lib64/hw/)
+        android.hidl.memory@1.0::I*/* (/apex/com.android.vndk.v31/lib/hw/)
+        android.hidl.memory@1.0::I*/* (/apex/com.android.vndk.v31/lib64/hw/)
+        android.hidl.memory@1.0::I*/* (/system/lib/hw/)
+        android.hidl.memory@1.0::I*/* (/system/lib64/hw/)
+        vendor.mediatek.hardware.camera.lomoeffect@1.0::I*/* (/vendor/lib64/hw/)
+        vendor.mediatek.hardware.keymaster_attestation@1.1::I*/* (/vendor/lib/hw/)
+        vendor.mediatek.hardware.keymaster_attestation@1.1::I*/* (/vendor/lib64/hw/)
+        vendor.mediatek.hardware.mms@1.6::I*/* (/vendor/lib/hw/)
+        vendor.mediatek.hardware.mms@1.6::I*/* (/vendor/lib64/hw/)
+-->
+<manifest version="4.0" type="device" target-level="5">
+    <kernel target-level="5"/>
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::IHealth/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.neuralnetworks</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IDevice/mtk-mdla</fqname>
+        <fqname>@1.3::IDevice/mtk-dsp</fqname>
+        <fqname>@1.3::IDevice/mtk-gpu</fqname>
+        <fqname>@1.3::IDevice/mtk-neuron</fqname>
+    </hal>
+     <hal format="hidl">
+         <name>android.hardware.usb</name>
+         <transport>hwbinder</transport>
+         <version>1.3</version>
+         <interface>
+             <name>IUsb</name>
+             <instance>default</instance>
+        </interface>
+     </hal>
+     <hal format="hidl">
+         <name>android.hardware.usb.gadget</name>
+         <transport>hwbinder</transport>
+         <version>1.1</version>
+         <interface>
+             <name>IUsbGadget</name>
+             <instance>default</instance>
+         </interface>
+     </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>IHostapd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>    
+    <hal format="hidl">
+        <name>android.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <version>1.4</version>
+        <interface>
+            <name>ISupplicant</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <version>1.5</version>
+        <interface>
+            <name>IWifi</name>
+            <instance>default</instance>
+        </interface>
+    </hal>    
+    <hal format="aidl">
+        <name>android.hardware.gnss</name>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <version>1.1</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.lbs</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILbs</name>
+            <instance>mtk_lppe_socket_agps</instance>
+            <instance>mtk_lppe_socket_wlan</instance>
+            <instance>mtk_lppe_socket_bt</instance>
+            <instance>mtk_lppe_socket_sensor</instance>
+            <instance>mtk_lppe_socket_network</instance>
+            <instance>mtk_lppe_socket_ipaddr</instance>
+            <instance>mtk_lppe_socket_lbs</instance>
+            <instance>mtk_framework2agps</instance>
+            <instance>mtk_agps2framework</instance>
+            <instance>mtk_mnld2nlputils</instance>
+            <instance>AgpsInterface</instance>
+            <instance>AgpsDebugInterface</instance>
+            <instance>mtk_meta2mnld</instance>
+            <instance>mtk_debugService2mnld</instance>
+            <instance>mtk_mnld2debugService</instance>
+            <instance>mtk_mnld2mtklogger</instance>
+            <instance>mtk_mtklogger2mnld</instance>
+            <instance>mtk_lbs_log_v2s</instance>
+            <instance>mtk_debugService2agpsd</instance>
+            <instance>mtk_agpsd2debugService</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
+        <name>android.hardware.light</name>
+        <fqname>ILights/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.4::ICryptoFactory/clearkey</fqname>
+        <fqname>@1.4::IDrmFactory/clearkey</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.4::ICryptoFactory/widevine</fqname>
+        <fqname>@1.4::IDrmFactory/widevine</fqname>
+    </hal>
+    <hal format="hidl" override="true">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <version>2.3</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal>
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.soter</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISoter</name>
+            <instance>default</instance>
+        </interface>
+    </hal>    
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IOplusSupplicant</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
+        <name>android.hardware.power</name>
+        <version>2</version>
+        <fqname>IPower/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.renderscript</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDevice/default</fqname>
+    </hal>
+    <!-- <hal format="hidl">
+        <name>android.hidl.memory</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMapper</name>
+            <instance>ashmem</instance>
+        </interface>
+        <fqname>@1.0::IMapper/ashmem</fqname>
+    </hal> -->
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.keymaster_attestation</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IKeymasterDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IKeymasterDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.mms</name>
+        <transport>hwbinder</transport>
+        <version>1.6</version>
+        <interface>
+            <name>IMms</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.6::IMms/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.boot</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::IBootControl/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::IHealth/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.audio</name>
+        <transport>hwbinder</transport>
+        <fqname>@7.0::IDevicesFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.audio</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@6.0::IDevicesFactory/default</fqname>
+        <fqname>@7.0::IDevicesFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.audio.effect</name>
+        <transport>hwbinder</transport>
+        <fqname>@7.0::IEffectsFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.audio.effect</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@6.0::IEffectsFactory/default</fqname>
+        <fqname>@7.0::IEffectsFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IBluetoothHci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.1::IBluetoothHci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth.audio</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.boot</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::IBootControl/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.6::ICameraProvider/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.camera.provider</name>
+        <transport arch="64">passthrough</transport>
+        <fqname>@2.6::ICameraProvider/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.4::ICryptoFactory/clearkey</fqname>
+        <fqname>@1.4::ICryptoFactory/widevine</fqname>
+        <fqname>@1.4::IDrmFactory/clearkey</fqname>
+        <fqname>@1.4::IDrmFactory/widevine</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gatekeeper</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IGatekeeper/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gatekeeper</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.0::IGatekeeper/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IGnss/default</fqname>
+        <fqname>@2.1::IGnss/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport arch="64">passthrough</transport>
+        <fqname>@2.1::IGnss/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.allocator</name>
+        <transport>hwbinder</transport>
+        <fqname>@4.0::IAllocator/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.allocator</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@4.0::IAllocator/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.3::IComposer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.mapper</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@4.0::IMapper/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::IHealth/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.keymaster</name>
+        <transport>hwbinder</transport>
+        <fqname>@4.1::IKeymasterDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IComponentStore/default</fqname>
+        <!-- <fqname>@1.2::IComponentStore/software</fqname> -->
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.media.omx</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOmx/default</fqname>
+        <fqname>@1.0::IOmxStore/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.memtrack</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMemtrack/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.memtrack</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.0::IMemtrack/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.neuralnetworks</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IDevice/mtk-dsp</fqname>
+        <fqname>@1.3::IDevice/mtk-gpu</fqname>
+        <fqname>@1.3::IDevice/mtk-mdla</fqname>
+        <fqname>@1.3::IDevice/mtk-neuron</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.radio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::ISap/slot1</fqname>
+        <fqname>@1.2::ISap/slot2</fqname>
+        <fqname>@1.6::IRadio/em1</fqname>
+        <fqname>@1.6::IRadio/em2</fqname>
+        <fqname>@1.6::IRadio/imsAospSlot1</fqname>
+        <fqname>@1.6::IRadio/imsAospSlot2</fqname>
+        <fqname>@1.6::IRadio/se1</fqname>
+        <fqname>@1.6::IRadio/se2</fqname>
+        <fqname>@1.6::IRadio/slot1</fqname>
+        <fqname>@1.6::IRadio/slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.radio.config</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IRadioConfig/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.secure_element</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::ISecureElement/SIM1</fqname>
+        <fqname>@1.2::ISecureElement/SIM2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.sensors</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::ISensors/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IThermal/default</fqname>
+        <fqname>@2.0::IThermal/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.thermal</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@2.0::IThermal/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.usb</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IUsb/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.usb.gadget</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IUsbGadget/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.5::IWifi/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.4::ISupplicant/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.apuware.apusys</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::INeuronApusys/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.apuware.hmp</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IApuwareHmp/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.apuware.utils</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IApuwareUtils/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.apuware.xrp</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::INeuronXrp/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.2::IBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.bluetooth.audio</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@2.2::IBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.atms</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.0::IATMs/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.bgservice</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IBGService/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.bgservice</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.1::IBGService/internal/0</fqname>
+    </hal>
+    <!-- <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.isphal</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IISPModule/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.isphal</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.0::IISPModule/internal/0</fqname>
+    </hal> -->
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.composer_ext</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IComposerExt/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.lbs</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ILbs/AgpsDebugInterface</fqname>
+        <fqname>@1.0::ILbs/AgpsInterface</fqname>
+        <fqname>@1.0::ILbs/mtk_agps2framework</fqname>
+        <fqname>@1.0::ILbs/mtk_agpsd2debugService</fqname>
+        <fqname>@1.0::ILbs/mtk_debugService2agpsd</fqname>
+        <fqname>@1.0::ILbs/mtk_debugService2mnld</fqname>
+        <fqname>@1.0::ILbs/mtk_framework2agps</fqname>
+        <fqname>@1.0::ILbs/mtk_lbs_log_v2s</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_agps</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_bt</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_ipaddr</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_lbs</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_network</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_sensor</fqname>
+        <fqname>@1.0::ILbs/mtk_lppe_socket_wlan</fqname>
+        <fqname>@1.0::ILbs/mtk_meta2mnld</fqname>
+        <fqname>@1.0::ILbs/mtk_mnld2debugService</fqname>
+        <fqname>@1.0::ILbs/mtk_mnld2mtklogger</fqname>
+        <fqname>@1.0::ILbs/mtk_mnld2nlputils</fqname>
+        <fqname>@1.0::ILbs/mtk_mtklogger2mnld</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.mmagent</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IMMAgent/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.mtkpower</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::IMtkPerf/default</fqname>
+        <fqname>@1.2::IMtkPower/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.mtkpower</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.2::IMtkPerf/default</fqname>
+        <fqname>@1.2::IMtkPower/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <transport>hwbinder</transport>
+        <fqname>@3.0::IMtkRadioEx/imsSlot1</fqname>
+        <fqname>@3.0::IMtkRadioEx/imsSlot2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkAssist1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkAssist2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkCap1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkCap2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkEm1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkEm2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkRcs1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkRcs2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkRsu1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkRsu2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkSe1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkSe2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkSlot1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkSlot2</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkSmartRatSwitch1</fqname>
+        <fqname>@3.0::IMtkRadioEx/mtkSmartRatSwitch2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.netdagent</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::INetdagent/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.nvram</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::INvram/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.nvram</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.1::INvram/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.nwk_opt</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::INwkOpt/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.pq</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.13::IPictureQuality/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.pq</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@2.13::IPictureQuality/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.videotelephony</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IVideoTelephony/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.videotelephony</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.0::IVideoTelephony/default</fqname>
+    </hal>
+    <!-- <hal format="hidl">
+        <name>vendor.nxp.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::INqNfc/default</fqname>
+    </hal> -->
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.appradio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusAppRadio/oplus_app_slot1</fqname>
+        <fqname>@1.0::IOplusAppRadio/oplus_app_slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.biometrics.fingerprint</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::IBiometricsFingerprint/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.biometrics.fingerprintpay</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IFingerprintPay/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.cammidasservice</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMIDASService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.charger</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ICharger/default</fqname>
+    </hal>
+    <!-- <hal format="hidl">
+        <name>vendor.oplus.hardware.commondcs</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ICommonDcsHalService/commondcsservice</fqname>
+    </hal> -->
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.cryptoeng</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ICryptoeng/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.displaypanelfeature</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IDisplayPanelFeature/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.engcamera</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IEngCamera/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.engcamera</name>
+        <transport arch="32">passthrough</transport>
+        <fqname>@1.0::IEngCamera/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.engineer</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IEngineer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.felica</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IFelicaDevice/oplusStor1</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.fido.fidoca</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IFidoDaemon/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.gameopt</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IGameOptHalService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.hdcp</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IHdcp/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.lmvibrator</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ILinearMotorVibrator/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.misc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusMisc/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.mtkmodemaci</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMtkModemAci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusNfc/default</fqname>
+    </hal>
+    <!-- <hal format="hidl">
+        <name>vendor.oplus.hardware.olc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusLogCore/default</fqname>
+    </hal> -->
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.oplusSensor</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ISensorFeature/default</fqname>
+    </hal>
+    <!-- <hal format="hidl">
+        <name>vendor.oplus.hardware.orms</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOrmsHalProxy/ORMS_HAL_PROXY</fqname>
+    </hal> -->
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.orms.ormsHalService</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOrmsHalService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.performance</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IPerformance/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.radio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusRadio/oplus_slot1</fqname>
+        <fqname>@1.0::IOplusRadio/oplus_slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.rpmh</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IRpmh/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.stability.oplus_project</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusProject/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.subsys</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ISubsys/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.touch</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusTouch/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.transmessage</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ITransmessge/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IOplusWifiService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IOplusSupplicant/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.soter</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ISoter/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.trustonic.tee</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::ITee/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.trustonic.tee.tui</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ITui/default</fqname>
+    </hal>
+</manifest>

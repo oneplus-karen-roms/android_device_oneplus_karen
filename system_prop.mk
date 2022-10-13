@@ -1,3 +1,8 @@
+# TODO: ADB unauthorized in recovery
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.adb.secure=0 \
+    androidboot.selinux=permissive
+
 # Apex
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.apex.updatable=false

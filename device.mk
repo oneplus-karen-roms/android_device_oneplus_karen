@@ -26,6 +26,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 TARGET_FLATTEN_APEX := true
 
 # VNDK
+BOARD_VNDK_VERSION := current
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 PRODUCT_SHIPPING_API_LEVEL := 31
 
@@ -37,9 +38,95 @@ $(call inherit-product-if-exists, vendor/mediatek/ims/mtk-ims.mk)
 # TODO:
 # $(call inherit-product, packages/apps/OneplusParts/parts.mk)
 
+# Virtual A/B support
+# # https://source.android.com/docs/core/ota/virtual_ab/implement#build-flags
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+AB_OTA_UPDATER := true
+ENABLE_VIRTUAL_AB := true
+
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
+
+# A/B updater updatable partitions list. Keep in sync with the partition list
+# with "_a" and "_b" variants in the device. Note that the vendor can add more
+# more partitions to this list for the bootloader and radio.
+
+# Actual Virtual A/B partitions to be used by LineageOS
+AB_OTA_PARTITIONS := \
+    odm \
+    product \
+    system \
+    system_ext \
+    vendor
+
+# Actual normal A/B partitions to be used by LineageOS
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor
+
+# Update engine
+PRODUCT_PACKAGES += \
+    e2fsck \
+    lpdump \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
+# A/B
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=ext4 \
+    POSTINSTALL_OPTIONAL_vendor=true
+
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    otapreopt_script
+
+# TODO: Virtual A/B partitions found on karen's full OTA payload.
+    # my_product \
+    # my_engineering \
+    # my_company \
+    # my_carrier \
+    # my_region \
+    # my_heytap \
+    # my_stock \
+    # my_preload \
+    # my_bigball \
+    # my_manifest
+
+# TODO: Normal A/B partitions found on karen's full OTA payload.
+# AB_OTA_PARTITIONS += \
+#     audio_dsp \
+#     cam_vpu1 \
+#     cam_vpu2 \
+#     cam_vpu3 \
+#     cdt_engineering \
+#     dpm \
+#     gz \
+#     lk \
+#     mcupm \
+#     md1img \
+#     pi_img \
+#     preloader_raw \
+#     scp \
+#     spmfw \
+#     sspm \
+#     tee \
+    # vendor_boot
 
 # Alert slider
 PRODUCT_PACKAGES += \
@@ -52,7 +139,14 @@ TARGET_SCREEN_WIDTH := 1080
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default
-	
+
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+    android.hardware.boot@1.2-service
+
 # CameraGo	
 PRODUCT_PACKAGES += \
     CameraGo
@@ -161,7 +255,8 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    hardware/oneplus
 
 # System prop
 -include $(DEVICE_PATH)/system_prop.mk

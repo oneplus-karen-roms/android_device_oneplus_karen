@@ -28,33 +28,239 @@ bin/vtservice
 etc/init/init.vtservice.rc
 framework/mediatek-ims-extension-plugin.jar
 framework/mediatek-ims-legacy.jar
-lib/libmtk_vt_service.so
+lib64/libmtk_vt_service.so
 lib/libmtk_vt_wrapper.so
-lib/libmtkaudio_utils.so
-lib/libmtkavenhancements.so
-lib/libmtklimiter.so
-lib/libmtkperf_client.so
-lib/libmtkshifter.so
-lib/libvcodec_cap.so
-lib/libvcodec_capenc.so
-lib/libvt_avsync.so
 lib64/libmtk_vt_wrapper.so
-lib64/libmtkaudio_utils.so
+# lib64/libmtkaudio_utils.so
+lib/libmtkavenhancements.so
 lib64/libmtkavenhancements.so
-lib64/libmtklimiter.so
+# lib64/libmtklimiter.so
+lib/libmtkperf_client.so
 lib64/libmtkperf_client.so
-lib64/libmtkshifter.so
+# lib/libmtkshifter.so
+lib/libvcodec_cap.so
+lib64/libvcodec_cap.so
+lib/libvcodec_capenc.so
+lib64/libvcodec_capenc.so
+lib64/libvt_avsync.so
+lib64/libmtk_vt_wrapper.so
+# lib64/libmtkaudio_utils.so
+lib64/libmtkavenhancements.so
+# lib64/libmtklimiter.so
+lib64/libmtkperf_client.so
+# lib64/libmtkshifter.so
 lib64/libvcodec_cap.so
 lib64/libvcodec_capenc.so
 
 # IMS | From bomb RP1A.200720.011 release-keys
-lib/libcomutils.so|be7c7b0901119cb260186061b90ef5b6a8292ae2
-lib/libimsma.so|c9e524600acb37296d7c73aa9db56d21e1a88d5b
-lib/libimsma_adapt.so|25159303e5d6404f08bda6456c8fcc2150005a9b
-lib/libimsma_rtp.so|ce2515dfb4802b4c6a121bae848e57342f0d43b9
-lib/libimsma_socketwrapper.so|5c63d8ec795fd0b7b9efcdc1adf4d81c5853c73a
-lib/libsignal.so|e008452949ea9bf486bf9892f024f82edcec5819
-lib/libsink.so|a7f8fa44abac16851dc83c58a13407e65c6a2cb0
-lib/libsource.so|0e01c6c5d76e21629463d1f94d28d1b8f91c4c30
+# lib/libcomutils.so|be7c7b0901119cb260186061b90ef5b6a8292ae2
+lib64/libcomutils.so
+# lib/libimsma.so|c9e524600acb37296d7c73aa9db56d21e1a88d5b
+lib64/libimsma.so
+# lib/libimsma_adapt.so|25159303e5d6404f08bda6456c8fcc2150005a9b
+lib64/libimsma_adapt.so
+# lib/libimsma_rtp.so|ce2515dfb4802b4c6a121bae848e57342f0d43b9
+lib64/libimsma_rtp.so
+# lib/libimsma_socketwrapper.so|5c63d8ec795fd0b7b9efcdc1adf4d81c5853c73a
+lib64/libimsma_socketwrapper.so
+# lib/libsignal.so|e008452949ea9bf486bf9892f024f82edcec5819
+lib64/libsignal.so
+# lib/libsink.so|a7f8fa44abac16851dc83c58a13407e65c6a2cb0
+lib64/libsink.so
+# lib/libsource.so|0e01c6c5d76e21629463d1f94d28d1b8f91c4c30
+lib64/libsource.so
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+
+
+# Inspired by TWRP device tree
+odm/vendor/app/mcRegistry/09070000000000000000000000000000.drbin
+odm/vendor/app/mcRegistry/09080000000000000000000000000000.tlbin
+odm/vendor/app/mcRegistry/03020000000000000000000000000000.tabin
+odm/vendor/app/mcRegistry/09060000000000000000000000000000.tabin
+odm/vendor/app/mcRegistry/031c0000000000000000000000000000.drbin
+odm/vendor/app/mcRegistry/6b3f5fa0f8cf55a7be2582587d62d63a.drbin
+odm/vendor/app/mcRegistry/04320000000000000000000000000000.tlbin
+odm/vendor/app/mcRegistry/b230723bcfe75f8581122dc1f8e52f4d.tabin
+odm/vendor/app/mcRegistry/08010203000000000000000000000000.tabin
+odm/vendor/app/mcRegistry/070f0000000000000000000000000a0a.tlbin
+odm/vendor/app/mcRegistry/031c0000000000000000000000000000.tlbin
+vendor/etc/init/trustonic.rc
+vendor/etc/init/tee.rc
+vendor/etc/vintf/manifest/manifest_media_c2_V1_1_default.xml
+vendor/etc/vintf/manifest/lights-mtk-default.xml
+vendor/etc/vintf/manifest/gnss-default.xml
+vendor/etc/vintf/manifest/android.hardware.health@2.1.xml
+vendor/etc/vintf/manifest/android.hardware.boot@1.2.xml
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml
+vendor/etc/vintf/manifest/android.hardware.cas@1.2-service-lazy.xml
+vendor/etc/vintf/manifest/power-default.xml
+vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml
+vendor/etc/vintf/manifest/oplus_wifi_supplicant_device.xml
+vendor/etc/vintf/manifest/lbs_hidl_service@1.0.xml
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.clearkey.xml
+vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml
+vendor/etc/vintf/manifest/manifest_hwcomposer.xml
+vendor/etc/vintf/manifest/android.hardware.usb@1.2-service-mediatekv2.xml
+vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml
+vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-mtk-mdla-dsp-gpu.xml
+vendor/etc/vintf/manifest/manifest_soter.xml
+vendor/etc/vintf/manifest/gnss@2.1-service.xml
+# vendor/etc/vintf/compatibility_matrix.xml
+# vendor/etc/vintf/manifest.xml
+vendor/lib64/vendor.trustonic.tee.tui@1.0.so
+vendor/lib64/libion_mtk.so
+vendor/lib64/libsoft_attestation_cert.so
+vendor/lib64/liburee_meta_drmkeyinstall.so
+vendor/lib64/libTEECommon.so
+vendor/lib64/hw/libMcGatekeeper.so
+vendor/lib64/hw/kmsetkey.trustonic.so
+vendor/lib64/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
+vendor/lib64/hw/libSoftGatekeeper.so
+vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so
+vendor/lib64/libladder.so
+odm/lib/vendor.oplus.hardware.cryptoeng@1.0.so
+odm/lib64/vendor.oplus.hardware.cryptoeng@1.0.so
+system_ext/lib/vendor.oplus.hardware.cryptoeng@1.0.so
+system_ext/lib64/vendor.oplus.hardware.cryptoeng@1.0.so
+vendor/lib64/vendor.oplus.hardware.commondcs@1.0.so
+vendor/lib64/vendor.trustonic.tee@1.1.so
+vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.1.so
+vendor/lib64/libpuresoftkeymasterdevice.so
+vendor/lib64/libion_ulit.so
+odm/lib/libtrustonic_keybox_ca.so
+odm/lib64/libtrustonic_keybox_ca.so
+vendor/lib64/libMcClient.so
+vendor/lib64/vendor.trustonic.tee@1.0.so
+vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.0.so
+vendor/lib64/libkmsetkey.so
+vendor/app/mcRegistry/07170000000000000000000000000000.tlbin
+vendor/app/mcRegistry/08040000000000000000000000003419.tabin
+vendor/app/mcRegistry/08050000000000000000000000003419.tlbin
+vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
+vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.tlbin
+vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.drbin
+vendor/app/mcRegistry/98fb95bcb4bf42d26473eae48690d7ea.tabin
+vendor/app/mcRegistry/05120000000000000000000000000001.drbin
+vendor/app/mcRegistry/06090000000000000000000000000000.drbin
+vendor/app/mcRegistry/5020170115e016302017012521300000.drbin
+vendor/app/mcRegistry/08110000000000000000000000000000.tabin
+vendor/app/mcRegistry/08050000000000000000000000003419.drbin
+vendor/app/mcRegistry/05120000000000000000000000000001.tlbin
+vendor/app/mcRegistry/08030000000000000000000000000000.tabin
+vendor/app/mcRegistry/07061000000000000000000000000000.tlbin
+vendor/app/mcRegistry/06090000000000000000000000000000.tlbin
+vendor/app/mcRegistry/40188311faf343488db888ad39496f9a.tlbin
+vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin
+vendor/app/mcRegistry/07170000000000000000000000000000.drbin
+vendor/app/mcRegistry/05120000000000000000000000000000.drbin
+vendor/app/mcRegistry/07150000000000000000000000000000.drbin
+vendor/app/mcRegistry/020f0000000000000000000000000000.tlbin
+vendor/app/mcRegistry/40188311faf343488db888ad39496f9a.drbin
+vendor/app/mcRegistry/abcd270ea5c44c58bcd3384a2fa2539e.tabin
+vendor/app/mcRegistry/07150000000000000000000000000000.tlbin
+vendor/app/mcRegistry/020f0000000000000000000000000000.drbin
+vendor/app/mcRegistry/05120000000000000000000000000000.tlbin
+vendor/app/mcRegistry/5020170115e016302017012521300000.tlbin
+system/etc/vintf/manifest/manifest_android.frameworks.cameraservice.service@2.2.xml
+system/etc/vintf/manifest/android.system.suspend@1.0-service.xml
+system/etc/vintf/manifest/android.hidl.allocator@1.0-service.xml
+system/etc/vintf/manifest/android.system.keystore2-service.xml
+system/etc/vintf/manifest/android.system.suspend@1.0-service.xml
+system/etc/vintf/manifest/manifest_android.frameworks.cameraservice.service@2.2.xml
+system/etc/vintf/manifest/manifest_media_c2_software.xml
+system/lib64/libion.so
+vendor/bin/mcDriverDaemon
+odm/bin/hw/vendor.oplus.hardware.cryptoeng@1.0-service
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+vendor/bin/hw/vendor.trustonic.tee@1.1-service
+vendor/bin/hw/android.hardware.keymaster@4.1-service.trustonic
+vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
+
+# Inspired by cat /system/etc/public.libraries-mtk.txt /system/etc/public.libraries-trustonic.txt
+# /system/etc/public.libraries.txt /system_ext/etc/public.libraries-oplus.txt
+# /system_ext/oplusex/public.libraries-oplusex.txt /vendor/etc/public.libraries.txt
+system_ext/lib/libapuwareapusys.mtk.so
+system_ext/lib64/libapuwareapusys.mtk.so
+system_ext/lib/libapuwareapusys_v2.mtk.so
+system_ext/lib64/libapuwareapusys_v2.mtk.so
+system_ext/lib/libapuwarexrp.mtk.so
+system_ext/lib64/libapuwarexrp.mtk.so
+system_ext/lib/libapuwarexrp_v2.mtk.so
+system_ext/lib64/libapuwarexrp_v2.mtk.so
+system_ext/lib/libapuwareutils.mtk.so
+system_ext/lib64/libapuwareutils.mtk.so
+system_ext/lib/libapuwareutils_v2.mtk.so
+system_ext/lib64/libapuwareutils_v2.mtk.so
+system_ext/lib/libapuwarehmp.mtk.so
+system_ext/lib64/libapuwarehmp.mtk.so
+system_ext/lib/libmcv_runtime_usdk.mtk.so
+system_ext/lib64/libmcv_runtime_usdk.mtk.so
+system_ext/lib/libneuron_graph_delegate.mtk.so
+system_ext/lib64/libneuron_graph_delegate.mtk.so
+system_ext/lib/libneuronusdk_adapter.mtk.so
+system_ext/lib64/libneuronusdk_adapter.mtk.so
+system_ext/lib/libtflite_mtk.mtk.so
+system_ext/lib64/libtflite_mtk.mtk.so
+system_ext/lib/libarmnn_ndk.mtk.so
+system_ext/lib64/libarmnn_ndk.mtk.so
+system_ext/lib/libcmdl_ndk.mtk.so
+system_ext/lib64/libcmdl_ndk.mtk.so
+system_ext/lib/libnir_neon_driver_ndk.mtk.so
+system_ext/lib64/libnir_neon_driver_ndk.mtk.so
+system_ext/lib/libmvpu_runtime.mtk.so
+system_ext/lib64/libmvpu_runtime.mtk.so
+system_ext/lib/libmvpu_runtime_pub.mtk.so
+system_ext/lib64/libmvpu_runtime_pub.mtk.so
+system_ext/lib/libmvpu_engine_pub.mtk.so
+system_ext/lib64/libmvpu_engine_pub.mtk.so
+system_ext/lib/libmvpu_pattern_pub.mtk.so
+system_ext/lib64/libmvpu_pattern_pub.mtk.so
+system_ext/lib/libmvpuop_mtk_cv.mtk.so
+system_ext/lib64/libmvpuop_mtk_cv.mtk.so
+system_ext/lib/libmvpuop_mtk_nn.mtk.so
+system_ext/lib64/libmvpuop_mtk_nn.mtk.so
+system_ext/lib/libteeservice_client.trustonic.so
+system_ext/lib64/libteeservice_client.trustonic.so
+# # See https://android.googlesource.com/platform/ndk/+/master/docs/PlatformApis.md
+# libandroid.so
+# libaaudio.so
+# libamidi.so
+# libbinder_ndk.so
+# libc.so
+# libcamera2ndk.so
+# libdl.so
+# libEGL.so
+# libGLESv1_CM.so
+# libGLESv2.so
+# libGLESv3.so
+# libicu.so
+# libicui18n.so
+# libicuuc.so
+# libjnigraphics.so
+# liblog.so
+# libmediandk.so
+# libm.so
+# libnativehelper.so
+# libnativewindow.so
+# libneuralnetworks.so nopreload
+# libOpenMAXAL.so
+# libOpenSLES.so
+# libRS.so
+# libstdc++.so
+# libsync.so
+# libvulkan.so
+# libwebviewchromium_plat_support.so
+# libz.so
+# libSloganJni.oplus.so
+# libsuperNight.oplus.so
+# libbinder.so
+# libOpenCL.so
+# libnir_neon_driver_ndk.mtk.vndk.so
+# libcmdl_ndk.mtk.vndk.so
+# libarmnn_ndk.mtk.vndk.so
+# libarcsoft_dualcam_wt_calibration.so
+# libarcsoft_dualcam_wt_verification.so
+# libcalibverifyW_T.so
+# libarcsoft_scbokeh_video.so
+
